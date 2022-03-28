@@ -1,0 +1,11 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        buyPrice = 1<<32
+        
+        for price in prices:
+            if(buyPrice > price):
+                buyPrice = price
+            else:
+                profit = max(profit, price-buyPrice)
+        return profit
